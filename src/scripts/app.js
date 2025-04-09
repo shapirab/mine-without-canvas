@@ -3,6 +3,8 @@ import Game from "./game.js";
 
 const container = document.querySelector('.container');
 let action = document.getElementById('btnAction');
+let commands = document.querySelector('.commands');
+
 let game = new Game(container);
 let input = new InputHandler();
 
@@ -21,3 +23,17 @@ action.addEventListener('click', () => {
     }
     executeCommands();
 });
+
+function animate(){
+    requestAnimationFrame(animate);
+    commands.innerHTML = '';
+    input.commands.forEach(command => {
+        let newDiv = document.createElement("div");
+        newDiv.classList.add('command');
+        newDiv.innerText = command;
+
+        commands.appendChild(newDiv);
+    });
+}
+
+animate();

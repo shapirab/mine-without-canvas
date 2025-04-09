@@ -8,13 +8,13 @@ body{
     width: 100vw;
     height: 100vh;
     margin: auto;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .l-grid{
     display: grid;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     border: 1px solid #000;
     margin: 0 auto;
 }
@@ -52,6 +52,19 @@ body{
     margin-top: 1rem;
 }
 
-.btn--action{
+.action{
     margin-top: 1rem;
+}
+
+.btn{
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+}
+
+.btn--primary{
+    background-color: #753bd9;
+    color: #fff;
+    letter-spacing: 1.3px;
 }
