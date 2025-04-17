@@ -21,18 +21,22 @@ export default class InputHandler{
                 case 'ArrowRight':
                     this.keys.right.pressed = true;
                     this.commands.push('right');
+                    this.generateCommandDiv();
                     break;
                 case 'ArrowLeft':
                     this.keys.left.pressed = true;
                     this.commands.push('left');
+                    this.generateCommandDiv();
                     break;
                 case 'ArrowUp':
                     this.keys.up.pressed = true;
                     this.commands.push('up');
+                    this.generateCommandDiv();
                     break;
                 case 'ArrowDown':
                     this.keys.down.pressed = true;
                     this.commands.push('down');
+                    this.generateCommandDiv();
                     break;
             }
         });
@@ -51,6 +55,24 @@ export default class InputHandler{
                     this.keys.down.pressed = false;
                     break;
             }
+        });
+    }
+
+    generateCommandDiv(){
+        let commandsContainer = document.querySelector('.commands');
+        commandsContainer.innerHTML = '';
+        this.commands.forEach((command, index) => {
+            let newDiv = document.createElement("div");
+            newDiv.classList.add('command');
+            newDiv.innerText = command;
+
+            commandsContainer.appendChild(newDiv);
+            newDiv.addEventListener('click', () => {
+                if (index > -1) {
+                    this.commands.splice(index, 1);
+                }
+                commandsContainer.removeChild(newDiv);
+            });
         });
     }
 }
